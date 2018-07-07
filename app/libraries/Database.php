@@ -7,7 +7,7 @@
     private $pass = DB_PASS;
     private $name = DB_NAME;
     
-    private $dbh;
+    private $db;
     private $stmt;
     private $error;
     
@@ -21,7 +21,7 @@
       );
       // Create PDO INstance
       try{
-        $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+        $this->db = new PDO($dsn, $this->user, $this->pass, $options);
       }catch(PDOException $e){
         $this->error = $e->getMessage();
         echo $this-error;
@@ -31,7 +31,7 @@
     // prepare statement with query
     public function query($sql)
     {
-      $this->stmt = $this->dbh->prepare($sql);
+      $this->stmt = $this->db->prepare($sql);
     }
     
     // Bind values 
