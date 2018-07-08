@@ -8,7 +8,7 @@
   <link rel='stylesheet' href="../css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-  <title><?php echo SITENAME;?></title>
+  <title>Somwthing</title>
 </head>
 <body>
   <header>
@@ -45,10 +45,8 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img class="lang-circle" src='../img/eng.png'/>
           </a>
-          <div id="langBar" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="index.php?url=pages/index_sr">
-              <img id="langCircleSrb" class="lang-circle" src='../img/srb.png'/>
-            </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <img class="lang-circle" src='../img/srb.png'/>
           </div>
         </li>
         </ul>

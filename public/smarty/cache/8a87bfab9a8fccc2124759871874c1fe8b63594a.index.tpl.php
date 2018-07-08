@@ -1,36 +1,36 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-07 10:11:47
-  from '/var/www/banesu/public/smarty/demo/templates/index.tpl' */
+/* Smarty version 3.1.32, created on 2018-07-08 12:12:21
+  from '/var/www/banesu/public/smarty/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4075c3e19071_09619380',
+  'unifunc' => 'content_5b41e385e4c1b6_38224349',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
-    'dc906daa8eada96b5216a0d7f45f11f61ce1e0fb' => 
+    '349a1f2c18f477255216a7c00271c6550a4b9e57' => 
     array (
-      0 => '/var/www/banesu/public/smarty/demo/templates/index.tpl',
+      0 => '/var/www/banesu/public/smarty/templates/index.tpl',
       1 => 1524581613,
       2 => 'file',
     ),
-    'a7e3fad3b2626b1f8226c2b68718990c87d235d1' => 
+    'df7c07f272b0b244fefd300788be3972ff6a34de' => 
     array (
-      0 => '/var/www/banesu/public/smarty/demo/templates/header.tpl',
+      0 => '/var/www/banesu/public/smarty/templates/header.tpl',
       1 => 1524581613,
       2 => 'file',
     ),
-    'f16635854c77ede7aeac0dc74b441016448aa048' => 
+    '65ee558281e71f17dc6873152e5e1c2b2d99a6b0' => 
     array (
-      0 => '/var/www/banesu/public/smarty/demo/templates/footer.tpl',
+      0 => '/var/www/banesu/public/smarty/templates/footer.tpl',
       1 => 1524581613,
       2 => 'file',
     ),
   ),
   'cache_lifetime' => 120,
 ),true)) {
-function content_5b4075c3e19071_09619380 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b41e385e4c1b6_38224349 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <HTML>
 <HEAD>
@@ -43,9 +43,9 @@ function content_5b4075c3e19071_09619380 (Smarty_Internal_Template $_smarty_tpl)
 
     <b>                Title: Welcome To Smarty!
         </b>
-    The current date and time is 2018-07-07 10:11:47
+    The current date and time is 2018-07-08 12:12:21
 
-    The value of global assigned variable $SCRIPT_NAME is /smarty/demo/index.php
+    The value of global assigned variable $SCRIPT_NAME is /smarty/index.php
 
     Example of accessing server environment variable SERVER_NAME: www.banesu.devpty
 
@@ -86,7 +86,7 @@ An example of a section loop:
         <p>
 
         testing strip tags
-        <table border=0><tr><td><A HREF="/smarty/demo/index.php"><font color="red">This is a test </font></A></td></tr></table>
+        <table border=0><tr><td><A HREF="/smarty/index.php"><font color="red">This is a test </font></A></td></tr></table>
 
 </PRE>
 
@@ -114,8 +114,8 @@ This is an example of the html_select_date function:
 <option value="4">04</option>
 <option value="5">05</option>
 <option value="6">06</option>
-<option value="7" selected="selected">07</option>
-<option value="8">08</option>
+<option value="7">07</option>
+<option value="8" selected="selected">08</option>
 <option value="9">09</option>
 <option value="10">10</option>
 <option value="11">11</option>
@@ -170,9 +170,9 @@ This is an example of the html_select_time function:
 <option value="07">07</option>
 <option value="08">08</option>
 <option value="09">09</option>
-<option value="10" selected="selected">10</option>
+<option value="10">10</option>
 <option value="11">11</option>
-<option value="12">12</option>
+<option value="12" selected="selected">12</option>
 </select>
 <select name="Time_Minute">
 <option value="00">00</option>
@@ -186,8 +186,8 @@ This is an example of the html_select_time function:
 <option value="08">08</option>
 <option value="09">09</option>
 <option value="10">10</option>
-<option value="11" selected="selected">11</option>
-<option value="12">12</option>
+<option value="11">11</option>
+<option value="12" selected="selected">12</option>
 <option value="13">13</option>
 <option value="14">14</option>
 <option value="15">15</option>
@@ -258,7 +258,7 @@ This is an example of the html_select_time function:
 <option value="18">18</option>
 <option value="19">19</option>
 <option value="20">20</option>
-<option value="21">21</option>
+<option value="21" selected="selected">21</option>
 <option value="22">22</option>
 <option value="23">23</option>
 <option value="24">24</option>
@@ -284,7 +284,7 @@ This is an example of the html_select_time function:
 <option value="44">44</option>
 <option value="45">45</option>
 <option value="46">46</option>
-<option value="47" selected="selected">47</option>
+<option value="47">47</option>
 <option value="48">48</option>
 <option value="49">49</option>
 <option value="50">50</option>
@@ -299,8 +299,8 @@ This is an example of the html_select_time function:
 <option value="59">59</option>
 </select>
 <select name="Time_Meridian">
-<option value="am" selected="selected">AM</option>
-<option value="pm">PM</option>
+<option value="am">AM</option>
+<option value="pm" selected="selected">PM</option>
 </select>
 </form>
 

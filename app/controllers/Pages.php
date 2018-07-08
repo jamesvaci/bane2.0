@@ -6,8 +6,11 @@ class Pages extends Controller{
   }
   
   public function index(){
-    $posts = $this->postModel->getUsers();
-    $this->view('pages/index', array('posts' => $posts));
+    if(substr($_GET['url'], -3) == '_sr'){
+      $this->view('pages/index_sr');
+    }else{
+      $this->view('pages/index');
+    };
   }
   
   public function references(){

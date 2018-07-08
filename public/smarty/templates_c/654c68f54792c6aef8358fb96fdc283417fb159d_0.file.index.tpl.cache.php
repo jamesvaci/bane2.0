@@ -1,4 +1,31 @@
-<?php require '../app/views/include/header.php'; ?>
+<?php
+/* Smarty version 3.1.32, created on 2018-07-08 12:44:10
+  from '/var/www/banesu/public/smarty/templates/homepage/index.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b41eafa6aefe6_02744246',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '654c68f54792c6aef8358fb96fdc283417fb159d' => 
+    array (
+      0 => '/var/www/banesu/public/smarty/templates/homepage/index.tpl',
+      1 => 1531046644,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../elements/header.tpl' => 1,
+    'file:../elements/footer.tpl' => 1,
+  ),
+),false)) {
+function content_5b41eafa6aefe6_02744246 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '18045087695b41eafa6ab2a3_34358545';
+$_smarty_tpl->_subTemplateRender("file:../elements/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </div>
 <img class="landing-pic" src="../img/Splendid.jpg"/>
 <div class="container">
@@ -76,7 +103,7 @@
       <h1>Some of the top companies use our services</h1>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="col-xs-6 col-sm-6 col-md-3">
         <img class="full_img" src="../img/partners/mts.png"/>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-3">
@@ -102,4 +129,6 @@
       <div class="col-xs-0 col-sm-2 col-md-4 col-lg-4"></div>
     </div>
   </div>
-<?php require '../app/views/include/footer.php'; ?>
+<?php $_smarty_tpl->_subTemplateRender("file:../elements/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}

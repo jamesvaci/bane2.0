@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.32, created on 2018-07-08 12:44:10
+  from '/var/www/banesu/public/smarty/templates/elements/footer.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b41eafa6b1c86_07640900',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6e5b7c66ad983e4f06e2a75ad3545dcaa3f2c75d' => 
+    array (
+      0 => '/var/www/banesu/public/smarty/templates/elements/footer.tpl',
+      1 => 1531046055,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5b41eafa6b1c86_07640900 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '8752922315b41eafa6b1292_79066105';
+?>
 <footer class="page-footer font-small blue pt-4 mt-4">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
@@ -47,8 +72,16 @@
     </div>
   </footer>
 </div>
-<script src='../js/jquery-3.3.1.min.js'></script>
-<script src='../js/bootstrap.js'></script>
-<script src='../js/custom.js'></script>
+<?php echo '<script'; ?>
+ src='../js/jquery-3.3.1.min.js'><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src='../js/bootstrap.js'><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src='../js/custom.js'><?php echo '</script'; ?>
+>
 </body>
 </html>
+<?php }
+}

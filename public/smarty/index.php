@@ -5,7 +5,7 @@
  * @package Example-application
  */
 
-require '../libs/Smarty.class.php';
+require 'libs/Smarty.class.php';
 
 $smarty = new Smarty;
 
@@ -27,4 +27,4 @@ $smarty->assign("option_values", array("NY", "NE", "KS", "IA", "OK", "TX"));
 $smarty->assign("option_output", array("New York", "Nebraska", "Kansas", "Iowa", "Oklahoma", "Texas"));
 $smarty->assign("option_selected", "NE");
 
-$smarty->display('index.tpl');
+$smarty->display('templates/index/index.tpl');

@@ -21,33 +21,33 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="#">Proizvodi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">References</a>
+            <a class="nav-link" href="#">Referense</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Lumino Solid Surface</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"></i>Q & A</a>
+            <a class="nav-link" href="#"></i>Pitanja</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"></i>Discount</a>
+            <a class="nav-link" href="#"></i>Akcije</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Kontakt</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Market</a>
+            <a class="nav-link disabled" href="#">Prodavnica</a>
           </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="lang-circle" src='../img/eng.png'/>
+            <img class="lang-circle" src='../img/srb.png'/>
           </a>
           <div id="langBar" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="index.php?url=pages/index_sr">
-              <img id="langCircleSrb" class="lang-circle" src='../img/srb.png'/>
+            <a href="index.php?url=pages/index">
+              <img id="langCircleEng" class="lang-circle" src='../img/eng.png'/>
             </a>
           </div>
         </li>

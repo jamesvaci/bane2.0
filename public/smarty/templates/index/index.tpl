@@ -1,4 +1,4 @@
-<?php require '../app/views/include/header.php'; ?>
+{include file="../elements/header.tpl"}
 </div>
 <img class="landing-pic" src="../img/Splendid.jpg"/>
 <div class="container">
@@ -74,9 +74,10 @@
   <div class="container">
     <div class="row">
       <h1>Some of the top companies use our services</h1>
+      <h1>{$Name}</h1>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="col-xs-6 col-sm-6 col-md-3">
         <img class="full_img" src="../img/partners/mts.png"/>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-3">
@@ -102,4 +103,4 @@
       <div class="col-xs-0 col-sm-2 col-md-4 col-lg-4"></div>
     </div>
   </div>
-<?php require '../app/views/include/footer.php'; ?>
+{include file="../elements/footer.tpl"}

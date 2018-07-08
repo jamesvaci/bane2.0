@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-07 10:11:47
-  from '/var/www/banesu/public/smarty/demo/templates/index.tpl' */
+/* Smarty version 3.1.32, created on 2018-07-08 12:02:31
+  from '/var/www/banesu/public/smarty/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4075c3dfd917_53325682',
+  'unifunc' => 'content_5b41e137976fc8_38289127',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
-    'dc906daa8eada96b5216a0d7f45f11f61ce1e0fb' => 
+    '349a1f2c18f477255216a7c00271c6550a4b9e57' => 
     array (
-      0 => '/var/www/banesu/public/smarty/demo/templates/index.tpl',
+      0 => '/var/www/banesu/public/smarty/templates/index.tpl',
       1 => 1524581613,
       2 => 'file',
     ),
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5b4075c3dfd917_53325682 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b41e137976fc8_38289127 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/banesu/public/smarty/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/banesu/public/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),2=>array('file'=>'/var/www/banesu/public/smarty/libs/plugins/function.html_select_date.php','function'=>'smarty_function_html_select_date',),3=>array('file'=>'/var/www/banesu/public/smarty/libs/plugins/function.html_select_time.php','function'=>'smarty_function_html_select_time',),4=>array('file'=>'/var/www/banesu/public/smarty/libs/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
-$_smarty_tpl->compiled->nocache_hash = '15501004665b4075c3dd6695_28251282';
+$_smarty_tpl->compiled->nocache_hash = '3441327915b41e13794bf77_06396904';
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf", "setup", 0);
 ?>
 
@@ -47,14 +47,14 @@ $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf"
     Example of accessing server environment variable SERVER_NAME: <?php echo $_SERVER['SERVER_NAME'];?>
 
 
-    The value of {$Name} is <b><?php echo '/*%%SmartyNocache:15501004665b4075c3dd6695_28251282%%*/<?php echo $_smarty_tpl->tpl_vars[\'Name\']->value;?>
-/*/%%SmartyNocache:15501004665b4075c3dd6695_28251282%%*/';?>
+    The value of {$Name} is <b><?php echo '/*%%SmartyNocache:3441327915b41e13794bf77_06396904%%*/<?php echo $_smarty_tpl->tpl_vars[\'Name\']->value;?>
+/*/%%SmartyNocache:3441327915b41e13794bf77_06396904%%*/';?>
 </b>
 
 variable modifier example of {$Name|upper}
 
-<b><?php echo '/*%%SmartyNocache:15501004665b4075c3dd6695_28251282%%*/<?php echo mb_strtoupper($_smarty_tpl->tpl_vars[\'Name\']->value, \'UTF-8\');?>
-/*/%%SmartyNocache:15501004665b4075c3dd6695_28251282%%*/';?>
+<b><?php echo '/*%%SmartyNocache:3441327915b41e13794bf77_06396904%%*/<?php echo mb_strtoupper($_smarty_tpl->tpl_vars[\'Name\']->value, \'UTF-8\');?>
+/*/%%SmartyNocache:3441327915b41e13794bf77_06396904%%*/';?>
 </b>
 
 

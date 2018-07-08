@@ -1,4 +1,4 @@
-<?php require '../app/views/include/header.php'; ?>
+<?php require '../app/views/include/header_sr.php'; ?>
 </div>
 <img class="landing-pic" src="../img/Splendid.jpg"/>
 <div class="container">
@@ -102,4 +102,4 @@
       <div class="col-xs-0 col-sm-2 col-md-4 col-lg-4"></div>
     </div>
   </div>
-<?php require '../app/views/include/footer.php'; ?>
+<?php require '../app/views/include/footer_sr.php'; ?>
