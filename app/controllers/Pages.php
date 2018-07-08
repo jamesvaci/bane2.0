@@ -10,7 +10,7 @@ class Pages extends Controller{
     $this->view('pages/index', array('posts' => $posts));
   }
   
-  public function about(){
-    echo "This is the About";
+  public function references(){
+    $this->view('pages/references');
   }
 }
