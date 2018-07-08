@@ -51,6 +51,26 @@
             </a>
           </div>
         </li>
+        <li class="nav-item dropdown userDrop">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropDownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropDownUser">
+            <form>
+            <div class="form-group">
+              <input type="email" class="form-control" id="signInEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="signInPass" placeholder="Password">
+            </div>
+            <div class="form_sign_register">
+              <button type="submit" class="btn btn-primary">Sign In</button>
+              <p>or</p>
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+          </div>
+        </li>
         </ul>
       </div>
     </div>

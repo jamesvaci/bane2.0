@@ -2,10 +2,6 @@ body{
   font-family: 'open sans',arial,sans-serif;
 }
 
-i{
-  padding: 20px;
-}
-
 #langBar{
   background: rgba(0,0,0,0)!important;
   border: none;
@@ -16,6 +12,14 @@ i{
 }
 .nav-item{
   padding:20px 10px;
+}
+
+.registerButton{
+    width: 100%;
+}
+
+.registerModal{
+    margin: 100px 0;
 }
 
 .header-logo{
@@ -74,6 +78,10 @@ i{
   text-align: center;
 }
 
+.container__references i{
+  padding: 20px;
+}
+
 .container__catalog{
   padding: 150px 0;
 }
@@ -130,6 +138,16 @@ i{
 
 .container__heading button:hover{
   box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.7);
+}
+
+.userDrop .dropdown-menu{
+  padding: 15px;
+  width: 280px;
+}
+
+.form_sign_register{
+  display: flex;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 1200px) {

@@ -10,7 +10,7 @@ class Core {
     $url = $this->getUrl();
     
     // looking in controllers for first values
-    if(file_exists('../app/controllers/'.ucwords($url[0]).'php')){
+    if(file_exists('../app/controllers/'.ucwords($url[0]).'.php')){
       // If it file_exists
       $this->currentController = ucwords($url[0]);
       // Unset 0 Indexes
