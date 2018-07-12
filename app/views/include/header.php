@@ -56,19 +56,19 @@
             <i class="fas fa-user"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropDownUser">
-            <form>
-            <div class="form-group">
-              <input type="email" class="form-control" id="signInEmail" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="signInPass" placeholder="Password">
-            </div>
-            <div class="form_sign_register">
-              <button type="submit" class="btn btn-primary">Sign In</button>
-              <p>or</p>
-              <button type="submit" class="btn btn-primary">Register</button>
-            </div>
-          </form>
+            <form  action="index.php?url=users/signin" method='post'>
+              <div class="form-group">
+                <input type="email" class="form-control" id="signInEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="signInPass" placeholder="Password" name="password">
+              </div>
+              <div class="form_sign_register">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <p>or</p>
+                <a href="index.php?url=users/register" type="submit" class="btn btn-primary">Register</a>
+              </div>
+            </form>
           </div>
         </li>
         </ul>
