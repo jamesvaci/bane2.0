@@ -16,4 +16,8 @@ class Pages extends Controller{
   public function references(){
     $this->view('pages/references');
   }
+  
+  public function signin(){
+    $this->view('pages/signin');
+  }
 }

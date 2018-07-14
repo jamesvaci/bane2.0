@@ -57,17 +57,18 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropDownUser">
             <form  action="index.php?url=users/signin" method='post'>
-              <div class="form-group">
-                <input type="email" class="form-control" id="signInEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" id="signInPass" placeholder="Password" name="password">
-              </div>
+              <?php
+              if (isset($_SESSION['app_id'])):?>
+                <div class="form_sign_register">
+                  <a href="index.php?url=users/logout" type="submit" class="btn btn-primary">Logout</a>
+                </div>
+              <?php else:?>
               <div class="form_sign_register">
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <a href="index.php?url=users/signin" type="submit" class="btn btn-primary">Sign in</a>
                 <p>or</p>
                 <a href="index.php?url=users/register" type="submit" class="btn btn-primary">Register</a>
               </div>
+            <?php endif;?>
             </form>
           </div>
         </li>

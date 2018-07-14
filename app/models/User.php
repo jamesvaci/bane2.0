@@ -43,16 +43,29 @@
     }
     
     public function signin($data){
-      $this->db->query('SELECT pass_salt, pass_hash FROM bane_db.bane_users WHERE email = :email');
+      $this->db->query('SELECT pass_salt, pass_hash, privlige FROM bane_db.bane_users WHERE email = :email');
       $this->db->bind(':email', $data['email']);  
       
       $t = $this->db->single();
       
-      if (md5($t->pass_salt.$data['password']) == $t->pass_hash) {
-        return true;
+      if($t->privlige == 0){
+        return 2;
       }else{
-        return false;
+        if (md5($t->pass_salt.$data['password']) == $t->pass_hash) {
+          return 3;
+        }else{
+          return 4;
+        }  
       }
+    }
+    
+    public function sessionData($email){
+      $this->db->query('SELECT app_id, first_name FROM bane_db.bane_users WHERE email = :email');
+      $this->db->bind(':email', $email);  
+      
+      $res = $this->db->single();
+      
+      return $res;
     }
     
     public function findUsersEmail($email)

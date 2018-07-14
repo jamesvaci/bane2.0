@@ -1,26 +1,31 @@
 <?php require '../app/views/include/header.php'; ?>
 <div class="row justify-content-center registerModal">
 <form action="index.php?url=users/register" method='post'>
-  <?php echo '<small>'.$data['success'].'</small>'?>
+  <?php if(strlen($data['success'])>0){
+    echo '<div class="alert alert-success" role="alert">'.$data['success'].'</div>';
+  }
+  if(strlen($data['email_used'])>0){
+    echo '<div class="alert alert-danger" role="alert">'.$data['email_used'].'<span><i class="far fa-dizzy"></i></span></div>';
+  }?>
   <div class="form-group">
     <input type="name" name="first_name" class="form-control" placeholder="Enter first name" value="<?php echo $data['first_name'];?>">
-    <?php echo '<small>'.$data['first_name_err'].'</small>'?>
+    <?php if(strlen($data['first_name_err'])>0){ echo '<div class="alert alert-warning" role="alert">'.$data['first_name_err'].'</div>'; }?>
   </div>
   <div class="form-group">
     <input type="name" name="last_name" class="form-control" placeholder="Enter last name" value="<?php echo $data['last_name'];?>">
-    <?php echo '<small>'.$data['last_name_err'].'</small>'?>
+    <?php if(strlen($data['last_name_err'])>0){ echo '<div class="alert alert-warning" role="alert">'.$data['last_name_err'].'</div>'; }?>
   </div>
   <div class="form-group">
     <input type="email" name="email" class="form-control" placeholder="Enter email"  value="<?php echo $data['email'];?>">
-    <?php echo '<small>'.$data['email_err'].'</small>'?>
+    <?php if(strlen($data['email_err'])>0){ echo '<div class="alert alert-warning" role="alert">'.$data['email_err'].'</div>'; }?>
   </div>
   <div class="form-group">
     <input type="password" name="password" class="form-control" placeholder="Password" value="<?php echo $data['password'];?>">
-    <?php echo '<small>'.$data['password_err'].'</small>'?>
+    <?php if(strlen($data['password_err'])>0){ echo '<div class="alert alert-warning" role="alert">'.$data['password_err'].'</div>'; }?>
   </div>
   <div class="form-group">
     <input type="password" name="conf_password" class="form-control" placeholder="Confim Password" value="<?php echo $data['confirm_password'];?>">
-    <?php echo '<small>'.$data['confirm_password_err'].'</small>'?>
+    <?php if(strlen($data['confirm_password_err'])>0){ echo '<div class="alert alert-warning" role="alert">'.$data['confirm_password_err'].'</div>'; }?>
   </div>
   <button type="submit" class="btn btn-primary registerButton">Submit</button>
 </form>

@@ -15,19 +15,70 @@ class Users extends Controller{
         'email' => $_POST['email'], 
         'password' => $_POST['password']
       );
-      // Model register user
-      if($this->userModel->signin($data)){
-        $this->createUserSession($user);
+      
+      if (empty($_POST['email']) || empty($_POST['password'])) {
+        $data = array(
+          'email' => $_POST['email'], 
+          'password' => $_POST['password'],
+          'wrong_pass'=> 'Please fill in both email and password',
+          'privlige'=> '',
+        );
+        $this->view('pages/signin', $data);
       }else{
-        echo "something went wrong";
-      };
+        if($this->userModel->findUsersEmail($data['email'])){
+          $privlige = $this->userModel->signin($data);
+          if($privlige == 2){
+            $data = array(
+            'email' => $_POST['email'], 
+            'password' => $_POST['password'],
+            'wrong_pass'=> 'A conformational mail has been sent to you when registering, please confirm your email',
+            'privlige'=> '',
+          );
+            $this->view('pages/signin', $data);
+          }elseif ($privlige==3) {
+            $userSession = $this->userModel->sessionData($data['email']);
+            $this->createUserSession($userSession->app_id, $data['email'], $userSession->first_name);
+            header("Location: index.php");
+          }else{
+            $data = array(
+              'email' => $_POST['email'], 
+              'password' => $_POST['password'],
+              'wrong_pass'=> 'Email or password are wrong',
+              'privlige'=> '',
+            );
+            $this->view('pages/signin', $data);
+          };
+        }else{
+          $data = array(
+            'email' => $_POST['email'], 
+            'password' => $_POST['password'],
+            'wrong_pass'=> 'Email or password are wrong',
+            'privlige'=> '',
+          );
+          $this->view('pages/signin', $data);
+        }
+      }
+    }else{
+      $data = array(
+        'email' => '', 
+        'password' => '',
+        'wrong_pass'=> '',
+        'privlige'=> '',
+      );
+      $this->view('pages/signin', $data);
     }
   }
   
-  public function createUserSession($user){
-    // $_SESSION['app_id'] = $app_id;
-    // $_SESSION['email'] = $app_id;
-    // $_SESSION['name'] = $app_id;
+  public function createUserSession($app_id, $email, $first_name){
+    $_SESSION['app_id'] = $app_id;
+    $_SESSION['email'] = $email;
+    $_SESSION['first_name'] = $first_name;
+  }
+  
+  public function logout(){
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
   }
   
   public function register(){
@@ -72,7 +123,15 @@ class Users extends Controller{
       
       if (empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
           if($this->userModel->findUsersEmail($data['email'])){
-            echo "Email already used";
+            $data = array(
+              'first_name' => trim($_POST['first_name']),
+              'last_name' => trim($_POST['last_name']),
+              'email' => trim($_POST['email']),
+              'password' => trim($_POST['password']),
+              'confirm_password' => trim($_POST['conf_password']),
+              'email_used' => 'Email has already been used',
+            );
+            $this->view('pages/register', $data);
           }else{
             if($this->userModel->register($data)){
               $data = array(
@@ -87,6 +146,7 @@ class Users extends Controller{
                 'password_err' => '',
                 'confirm_password_err' => '',
                 'success' => 'A conformational mail has been sent to you',
+                'email_used' => '',
               );
               $this->view('pages/register', $data);
             }else{
@@ -102,13 +162,7 @@ class Users extends Controller{
         'last_name' => '',
         'email' => '',
         'password' => '',
-        'confirm_password' => '',
-        'first_name_err' => '',
-        'last_name_err' => '',
-        'email_err' => '',
-        'password_err' => '',
-        'confirm_password_err' => '',
-        'success' => '',
+        'confirm_password' => ''
       );
     };
     
