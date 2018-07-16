@@ -1,7 +1,4 @@
-<?php 
-  /**
-   * 
-   */
+<?php
   class User
   {
     private $db;

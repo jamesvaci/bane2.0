@@ -20,4 +20,8 @@ class Pages extends Controller{
   public function signin(){
     $this->view('pages/signin');
   }
+  
+  public function admin(){
+    $this->view('pages/admin');
+  }
 }
