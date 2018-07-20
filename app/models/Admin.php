@@ -41,6 +41,21 @@
       return $result;
     }
     
+    public function a_q($data)
+    {
+      $this->db->query("UPDATE bane_db.bane_qa SET answer=:answer WHERE created=:created;");
+      $this->db->bind(':created', $data['created']);
+      $this->db->bind(':answer', $data['answer']);
+      return $this->db->execute();
+    }
+    
+    public function a_qHidden($data)
+    {
+      $this->db->query("UPDATE bane_db.bane_qa SET hidden = NOT hidden WHERE created=:created;");
+      $this->db->bind(':created', $data['created']);
+      return $this->db->execute();
+    }
+    
     public function removeuser($app_id)
     {
       $this->db->query("DELETE FROM bane_db.bane_users WHERE app_id=:app_id;");

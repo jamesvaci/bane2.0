@@ -30,7 +30,7 @@
             <a class="nav-link" href="#">Lumino Solid Surface</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"></i>Pitanja</a>
+            <a class="nav-link" href="index.php?url=users/getqa"></i>Pitanja</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"></i>Akcije</a>

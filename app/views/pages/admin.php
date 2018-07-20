@@ -57,6 +57,7 @@
                         <li> <a class="nav-link" data-toggle="tab" href="#products" role="tab" aria-controls="settings" aria-selected="false">Products</a></li>
                         <li> <a class="nav-link" data-toggle="tab" href="#news" role="tab" aria-controls="settings" aria-selected="false">News</a></li>
                         <li><a class="nav-link" data-toggle="tab" href="#orders" role="tab" aria-controls="settings" aria-selected="false">Orders</a></li>
+                        <li><a class="nav-link" data-toggle="tab" href="#categories" role="tab" aria-controls="settings" aria-selected="false">Categories</a></li>
                     </ul>
                 </nav>
             <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
@@ -109,17 +110,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <form id="form_hidden_created" action="index.php?url=admins/a_qHidden" method="post" ><input style="display:none;" name="hidden_created" id="hidden_checkbox"></input></form>
                     <?php foreach ($data['QA'] as $qa) {
                         echo "<tr>";
                         echo "<td>".$qa->user_id."</td>";
                         echo "<td>".$qa->question."</td>";
                         echo "<td>".$qa->answer."</td>";
                         if ($qa->hidden == 0) {
-                          echo '<td><input type="checkbox" class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
+                          echo '<td><input class="hidden_comment" type="checkbox" class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
                         }else{
-                          echo '<td><input type="checkbox" checked class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
+                          echo '<td><input class="hidden_comment" type="checkbox" checked class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
                         }
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-edit'></button></form></td>";
+                        echo "<td><button id='editAnswer-".$qa->created."' data-toggle='modal' data-target='#answer' class='btn waves-effect waves-light btn-info hidden-md-down'> Answer</button></td>";
                         echo "</tr>";
                     }?>
                   </tbody>
@@ -217,7 +219,45 @@
                         echo "</tr>";
                     }?>
                   </tbody>
-                </table></div>
+                </table>
+              </div>
+              <div class="tab-pane" id="categories" role="tabpanel" aria-labelledby="settings-tab">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Category & Subcategories</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Chose Image</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                    foreach ($data['Categories'] as $mainCat) {
+                      $name = str_replace("_", " ", $mainCat->name);
+                      echo "<tr>";
+                      echo "<td></td>";
+                      echo "<td>".$name."</td>";
+                      echo "<td><img src=./img/category/".strtolower($mainCat->name).".png></td>";
+                      echo "<td><button data-toggle='modal' data-target='#cropCategory' class='fas fa-edit cropCategoryButton'></button></td>";
+                      echo "</tr>";
+                    }
+                    foreach ($data['Categories'] as $subCat) {
+                      $json = json_decode($subCat->subcategory);
+                      foreach ($json as $key => $value) {
+                      $nameSub = str_replace(" ", "_",strtolower($value));
+                        echo "<tr>";
+                        echo "<td></td>";
+                        echo "<td>".$value."</td>";
+                        echo "<td><img src=./img/category/subcategory/".$nameSub.".png></td>";
+                        echo "<td><button data-toggle='modal' data-target='#cropCategory' class='fas fa-edit cropCategoryButton'></button></td>";
+                        echo "</tr>";
+                      }
+                    }
+                    ?>
+                  </tbody>
+                </table>
+              </div>
             </div>
             </div>
             <footer class="footer"> © 2018 Adminwrap by wrappixel.com </footer>
@@ -305,25 +345,29 @@
             </div>
             <div class="tableCell">
               <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMainCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Main Category
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMainCategory">
+                <?php foreach ($data['Categories'] as $mainCat) {
+                  $name = str_replace("_", " ", $mainCat->name);
+                  echo '<a class="dropdown-item dropdownMainCategory" href="#">'.$name.'</a>';
+                }?>
               </div>
             </div>
             </div>
             <div class="tableCell">
               <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSubCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sub Category
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownSubCategory">
+                <?php foreach ($data['Categories'] as $mainCat) {
+                  $json = explode(",",$mainCat->subcategory,-1);
+                  foreach ($json as $value) {
+                    echo '<a class="dropdown-item dropdownSubCategory" href="#">'.str_replace("_", " ", $value).'</a>';
+                  }
+                }?>
               </div>
             </div>
             </div>
@@ -349,6 +393,70 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="answer" tabindex="-1" role="dialog" aria-labelledby="answer" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="index.php?url=admins/a_q" method="post">
+      <input id="qa_user_id" name="created" type='text' class="form-control" style="display:none"/>
+      <div class="modal-body">
+        <div class="table">
+          <div class="tableRow">
+            <div class="tableCell">
+              Question
+            </div>
+            <div class="tableCell">
+              <input name="answer" type='text' class="form-control" placeholder="Type in your answer"/>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Answer</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="cropCategory" tabindex="-1" role="dialog" aria-labelledby="answer" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="index.php?url=admins/addcategorypic" method="post">
+      <div class="modal-body">
+        <div class="table">
+          <div class="tableRow">
+            <div class="tableRow">
+              <h2>1. Upload Picture</h2>  
+              <form class="input-group" id="img2b64">
+                  <input id="inputFileToLoadCategory" type="file" onchange="encodeImageFileAsURL();" />
+              </form>
+            </div>
+            <hr>
+            <div class="tableRow">
+              <h2>2. Crop It</h2>  
+              <div class="tableCell box">
+                <canvas id="panelCategory" width="380" height="380"></canvas>
+              </div>
+              <div class="tableCell box">
+                <img id="crop_resultCategory"/>
+                <input id="img_thumbCategory" name="img_thumbCategory" style="display:none"></input>
+              </div>
+            </div>
+            <div class="tableRow">
+              <div class="tableCell">
+                Zoom it:
+                <input id='scaleSliderCategory' type='range' min='0' max='2.0' step='0.01' value='0.0' />
+                <input id='nameCategory' name="nameCategory" style="display:none"/>
+              </div>
+              <div class="tableCell">
+                <a class="btn btn-primary" id="cropImgButtnCategory">Crop It</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload It</button>
       </div>
     </form>
     </div>

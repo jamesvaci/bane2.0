@@ -8,6 +8,27 @@
       $this->db = new Database;
     }
     
+    public function qa($data)
+    {
+      $timestamp = date_timestamp_get(date_create());
+      $this->db->query('INSERT INTO bane_db.bane_qa (user_id, question, created) VALUES(:user_id, :question, :created)');
+      $this->db->bind(':user_id', $_SESSION['app_id']);
+      $this->db->bind(':question', $data['question']);
+      $this->db->bind(':created', $timestamp);
+      
+      if($this->db->execute()){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    
+    public function getQA()
+    {
+      $this->db->query('SELECT bane_users.first_name, bane_qa.question, bane_qa.answer FROM bane_db.bane_qa, bane_db.bane_users WHERE bane_qa.user_id=bane_users.app_id AND bane_qa.hidden=0');
+      return $this->db->resultSet();
+    }
+    
     public function register($data){
       $timestamp = date_timestamp_get(date_create());
       $salt = md5(microtime(false));
@@ -63,6 +84,15 @@
       $res = $this->db->single();
       
       return $res;
+    }
+    
+    public function isLoggedIn()
+    {
+      if(isset($_SESSION['app_id'])) {
+         return 1;
+      }else{
+         return 0;
+      }
     }
     
     public function findUsersEmail($email)

@@ -26,6 +26,34 @@ body{
   height: 38px;
 }
 
+.qaPage{
+  padding: 50px 0;
+}
+
+.qaPage button, .qaPage a{
+  width: 100%;
+}
+
+.answer{
+  border-left: 2px solid #4286f4;
+  padding-left: 10px;
+}
+
+.qaBox{
+  border-radius: 7px;
+  margin: 5px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+  transition:  all 0.5s;
+}
+
+.qaBox:hover{
+  -webkit-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
+}
 .full_img{
   width: 100%;
 }

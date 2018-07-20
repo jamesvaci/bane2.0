@@ -17,7 +17,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" href="#"><img class="header-logo" src='../img/logo.png'/></a>
+        <a class="navbar-brand" href="index.php"><img class="header-logo" src='../img/logo.png'/></a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -30,7 +30,7 @@
             <a class="nav-link" href="#">Lumino Solid Surface</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"></i>Q & A</a>
+            <a class="nav-link" href="index.php?url=users/getqa"></i>Q & A</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"></i>Discount</a>

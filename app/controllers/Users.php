@@ -5,6 +5,26 @@ class Users extends Controller{
     $this->userModel = $this->model('User');
   }
   
+  public function qa()
+  {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $data = array('question' => $_POST['question']);
+      if ($this->userModel->qa($_SESSION['app_id'])) {
+        $this->getqa();
+      }else {
+        echo "Fail";
+      }
+    }
+  }
+  
+  public function getqa()
+  {
+    $data = array('isLoggedIn' => $this->userModel->isLoggedIn(), 'qa' => $this->userModel->getQA());
+    $this->view('pages/qa', $data);
+  }
+  
   public function signin(){
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

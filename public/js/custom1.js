@@ -55,3 +55,16 @@ $(function() {
         $(this).closest(".card").removeClass().slideUp("fast");
     });
 });
+
+$(document).ready(function(){
+  $('[id^=editAnswer]').on('click', function(){
+    $('#qa_user_id')[0].value= this.id.slice(11);
+  });
+  $('.hidden_comment').on('click', function(){
+    $('#hidden_checkbox')[0].value=this.parentNode.nextElementSibling.children[0].id.slice(11);
+    $("#form_hidden_created").submit();
+  });
+  $('.dropdownMainCategory').on('click', function(){
+    $('#dropdownMainCategory').html(this.text);
+  })
+})

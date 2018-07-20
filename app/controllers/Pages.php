@@ -24,4 +24,8 @@ class Pages extends Controller{
   public function admin(){
     $this->view('pages/admin');
   }
+  
+  public function qa(){
+    $this->view('pages/qa');
+  }
 }
