@@ -16,6 +16,8 @@
     <link href="../css/style1.css" rel="stylesheet">
     <link href="../css/dashboard1.css" rel="stylesheet">
     <link href="../css/default.css" id="theme" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
@@ -76,15 +78,16 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col"><i class="fas fa-user"></i></th>
-                      <th scope="col"><i class="far fa-envelope"></i></th>
-                      <th scope="col"><i class="fas fa-phone"></i></th>
-                      <th scope="col"><i class="fas fa-dolly"></i></th>
+                      <th scope="col"><i class="fa fa-user"></i></th>
+                      <th scope="col"><i class="fa fa-envelope"></i></th>
+                      <th scope="col"><i class="fa fa-phone"></i></th>
+                      <th scope="col"><i class="fa fa-bus"></i></th>
                       <th scope="col">Remove</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($data['Users'] as $app) {
+                    <?php
+                    foreach ($data['Users'] as $app) {
                         $other =json_decode($app->other);
                         $phone = $other->phone;
                         echo "<tr>";
@@ -92,7 +95,7 @@
                         echo "<td>".$app->email."</td>";
                         echo "<td>".$phone."</td>";
                         echo "<td>".$app->orders."</td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-trash' value=".$app->app_id."></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-trash' value=".$app->app_id."></button></form></td>";
                         echo "</tr>";
                     }?>
                   </tbody>
@@ -102,26 +105,28 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col"><i class="fas fa-user"></i></th>
+                      <th scope="col">User</th>
                       <th scope="col">Question</th>
                       <th scope="col">Answer</th>
-                      <th scope="col"><i class="fas fa-eye"></i></th>
-                      <th scope="col"><i class="fas fa-edit"></i></th>
+                      <th scope="col">Hidden</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
                     </tr>
                   </thead>
                   <tbody>
                     <form id="form_hidden_created" action="index.php?url=admins/a_qHidden" method="post" ><input style="display:none;" name="hidden_created" id="hidden_checkbox"></input></form>
                     <?php foreach ($data['QA'] as $qa) {
+                        $hidden = "";
+                        if ($qa->hidden == 1) {
+                          $hidden = "checked";
+                        }
                         echo "<tr>";
-                        echo "<td>".$qa->user_id."</td>";
+                        echo "<td>".$qa->first_name." ".$qa->first_name."</td>";
                         echo "<td>".$qa->question."</td>";
                         echo "<td>".$qa->answer."</td>";
-                        if ($qa->hidden == 0) {
-                          echo '<td><input class="hidden_comment" type="checkbox" class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
-                        }else{
-                          echo '<td><input class="hidden_comment" type="checkbox" checked class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
-                        }
-                        echo "<td><button id='editAnswer-".$qa->created."' data-toggle='modal' data-target='#answer' class='btn waves-effect waves-light btn-info hidden-md-down'> Answer</button></td>";
+                        echo '<td><input class="hidden_comment" type="checkbox" '.$hidden.' class="form-check-input" style="left:0; opacity:1; position:relative;"></td>';
+                        echo "<td><button id='editAnswer-".$qa->created."' data-toggle='modal' data-target='#answer' class='btn waves-effect waves-light btn-info hidden-md-down'><i class='fa fa-pencil'></i></button></td>";
+                        echo "<td><button id='eraseAnswer-".$qa->created."' data-toggle='modal' data-target='#answer' class='btn waves-effect waves-light btn-danger hidden-md-down'><i class='fa fa-trash'></i></button></td>";
                         echo "</tr>";
                     }?>
                   </tbody>
@@ -155,8 +160,8 @@
                         echo "<td>".$products->price."</td>";
                         echo "<td>".$products->new_price."</td>";
                         echo "<td>".date('d/m/Y', $products->created)."</td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-edit'></button></form></td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-trash'></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-edit'></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-trash'></button></form></td>";
                         echo "</tr>";
                     }?>
                   </tbody>
@@ -164,7 +169,7 @@
                 </div>
               <div class="tab-pane" id="news" role="tabpanel" aria-labelledby="settings-tab">
                 <div class="text-center m-t-30">
-                  <button data-toggle="modal" data-target="#addNewNews" class="btn waves-effect waves-light btn-info hidden-md-down"> Add New Product</button>
+                  <button data-toggle="modal" data-target="#addNewNews" class="btn waves-effect waves-light btn-info hidden-md-down"> Add New Article</button>
                 </div>
                 <table class="table table-hover">
                   <thead>
@@ -184,8 +189,8 @@
                         echo "<td>".$news->title."</td>";
                         echo "<td>".$news->description."</td>";
                         echo "<td>".date('d/m/Y', $news->created)."</td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-edit'></button></form></td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-trash'></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-edit'></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-trash'></button></form></td>";
                         echo "</tr>";
                     }?>
                   </tbody>
@@ -214,8 +219,8 @@
                         echo "<td></td>";
                         echo "<td>".$orders->status."</td>";
                         echo "<td>".date('d/m/Y', $orders->created)."</td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-edit'></button></form></td>";
-                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fas fa-trash'></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-edit'></button></form></td>";
+                        echo "<td><form action='index.php?url=admins/removeuser' method='post'><button type='submit' name='app_id' class='fa fa-trash'></button></form></td>";
                         echo "</tr>";
                     }?>
                   </tbody>
@@ -234,26 +239,24 @@
                   <tbody>
                     <?php 
                     foreach ($data['Categories'] as $mainCat) {
+                      $json = json_decode($mainCat->subcategory);
                       $name = str_replace("_", " ", $mainCat->name);
                       echo "<tr>";
                       echo "<td></td>";
                       echo "<td>".$name."</td>";
                       echo "<td><img src=./img/category/".strtolower($mainCat->name).".png></td>";
-                      echo "<td><button data-toggle='modal' data-target='#cropCategory' class='fas fa-edit cropCategoryButton'></button></td>";
+                      echo "<td><button data-toggle='modal' data-target='#cropCategory' class='fa fa-edit cropCategoryButton'></button></td>";
                       echo "</tr>";
-                    }
-                    foreach ($data['Categories'] as $subCat) {
-                      $json = json_decode($subCat->subcategory);
                       foreach ($json as $key => $value) {
-                      $nameSub = str_replace(" ", "_",strtolower($value));
+                        $nameSub = str_replace(" ", "_",strtolower($value));
                         echo "<tr>";
                         echo "<td></td>";
                         echo "<td>".$value."</td>";
                         echo "<td><img src=./img/category/subcategory/".$nameSub.".png></td>";
-                        echo "<td><button data-toggle='modal' data-target='#cropCategory' class='fas fa-edit cropCategoryButton'></button></td>";
+                        echo "<td><button data-toggle='modal' data-target='#cropCategory' class='fa fa-edit cropCategoryButton'></button></td>";
                         echo "</tr>";
                       }
-                    }
+                    };
                     ?>
                   </tbody>
                 </table>
@@ -264,39 +267,39 @@
         </div>
     </div>
 <div class="modal fade" id="addNewNews" tabindex="-1" role="dialog" aria-labelledby="addNewProductLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addNewArticleLabel">Add New Article</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="crop_body table">
-          <div class="tableRow">
-            <h2>1. Upload Picture</h2>  
-            <form class="input-group" id="img2b64T">
-                <input id="articlePicture" type="file"/>
-            </form>
+  <form action="index.php?url=admins/article" method="post">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addNewArticleLabel">Add New Article</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="crop_body table">
+            <div class="tableRow">
+              <h2>1. Upload Picture</h2>  
+              <form class="input-group" id="img2b64T">
+                  <input id="articlePicture" type="file"/>
+              </form>
+            </div>
+            <hr>
+            <div class="tableRow">
+              <h2>2. Write Article</h2>
+                <input name="article_title" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Title">
+                <input name="article_description" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Description">
+            </div>
+            <hr>
           </div>
-          <hr>
-          <div class="tableRow">
-            <h2>2. Write Article</h2>  
-            <form class="input-group">
-              <input name="news_title" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Title">
-              <input name="news_description" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Description">
-            </form>
-          </div>
-          <hr>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add New Article</button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add New Article</button>
-      </div>
     </div>
-  </div>
+  </form>
 </div>
 <div class="modal fade" id="addNewProduct" tabindex="-1" role="dialog" aria-labelledby="addNewProductLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

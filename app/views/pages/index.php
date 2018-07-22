@@ -23,17 +23,17 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4">
-        <i class="fas fa-drafting-compass"></i>
+        <i class="fa fa-pencil-square-o"></i>
         <h4>Plan</h4>
         <h5>We desing your dream interior with our profesional architects and designers</h5>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4">
-        <i class="fas fa-chalkboard-teacher"></i>
+        <i class="fa fa-object-group"></i>
         <h4>Make</h4>
         <h5>Next we make the plans in our workshops, where we take great care and dedication for everyything to be percise and clean</h5>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4">
-        <i class="fas fa-dolly "></i>
+        <i class="fa fa-bus "></i>
         <h4>Ship</h4>
         <h5>After our final inspection of your product is done, we ship it directly to your address</h5>
       </div>

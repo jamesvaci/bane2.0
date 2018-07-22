@@ -8,11 +8,17 @@
       $this->db = new Database;
     }
     
+    public function getcategories()
+    {
+      $this->db->query('SELECT * FROM bane_db.bane_category');
+      return $this->db->resultSet();
+    }
+    
     public function qa($data)
     {
       $timestamp = date_timestamp_get(date_create());
       $this->db->query('INSERT INTO bane_db.bane_qa (user_id, question, created) VALUES(:user_id, :question, :created)');
-      $this->db->bind(':user_id', $_SESSION['app_id']);
+      $this->db->bind(':user_id', $data['app_id']);
       $this->db->bind(':question', $data['question']);
       $this->db->bind(':created', $timestamp);
       

@@ -5,13 +5,18 @@ class Users extends Controller{
     $this->userModel = $this->model('User');
   }
   
+  public function getproducts(){
+    $data = $this->userModel->getcategories();
+    $this->view('pages/products', $data);
+  }
+  
   public function qa()
   {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-      $data = array('question' => $_POST['question']);
-      if ($this->userModel->qa($_SESSION['app_id'])) {
+      $data = array('question' => $_POST['question'], 'app_id'=>$_SESSION['app_id']);
+      if ($this->userModel->qa($data)) {
         $this->getqa();
       }else {
         echo "Fail";

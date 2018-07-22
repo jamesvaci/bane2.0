@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content='ie=edge'>
   <link rel='stylesheet' href="../css/bootstrap.css">
   <link rel='stylesheet' href="../css/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
   <title><?php echo SITENAME;?></title>
 </head>
@@ -21,25 +22,25 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="index.php?url=pages/products">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">References</a>
+            <a class="nav-link" href="index.php?url=pages/references">References</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Lumino Solid Surface</a>
+            <a class="nav-link" href="index.php?url=pages/lumino">Lumino Solid Surface</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?url=users/getqa"></i>Q & A</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"></i>Discount</a>
+            <a class="nav-link" href="index.php?url=pages/discount"></i>Discount</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="index.php?url=pages/contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Market</a>
+            <a class="nav-link disabled" href="index.php?url=pages/market">Market</a>
           </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +54,7 @@
         </li>
         <li class="nav-item dropdown userDrop">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropDownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user"></i>
+            <i class="fa fa-user"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropDownUser">
             <form  action="index.php?url=users/signin" method='post'>

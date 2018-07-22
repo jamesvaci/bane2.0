@@ -1998,6 +1998,8 @@ Buttons
 
 .btn-primary,
 .btn-primary.disabled {
+  width: 100%;
+  color: white!important;
   background: #6772e5;
   border: 1px solid #6772e5;
   /*box-shadow: $primary-shadow;*/
@@ -5900,3 +5902,7 @@ File: scss
       padding: 4px 10px;
       font-size: 1em;
     }
+#cropImgButtn{
+  width: 100%;
+  background: red!important;
+}
